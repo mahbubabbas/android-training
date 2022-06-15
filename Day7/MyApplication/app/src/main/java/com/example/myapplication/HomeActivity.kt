@@ -11,9 +11,9 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        txtHello = findViewById(R.id.txtHello)
+        //txtHello = findViewById(R.id.txtHello)
 
-        val username = intent.getStringExtra(MY_MESSAGE)
-        txtHello.text = "Hi $username"
+        //val username = intent.getStringExtra(MY_MESSAGE)
+        //txtHello.text = "Hi $username"
     }
 }
