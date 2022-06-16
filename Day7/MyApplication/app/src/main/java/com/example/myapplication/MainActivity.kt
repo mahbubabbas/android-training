@@ -9,8 +9,8 @@ import android.widget.*
 class MainActivity : AppCompatActivity() {
     lateinit var btnLogin: Button
     lateinit var txtLoginHeader: TextView
-    lateinit var edtUsername : EditText
-    lateinit var edtPassword : EditText
+    lateinit var edtUsername: EditText
+    lateinit var edtPassword: EditText
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
                 val i = Intent(this, HomeActivity::class.java).apply {
                     putExtra(MY_MESSAGE, username)
                 }
+                //val i = Intent(this, MotionActivity::class.java)
                 startActivity(i)
             } else {
                 Toast.makeText(this, "Login failed!", Toast.LENGTH_SHORT).show()
