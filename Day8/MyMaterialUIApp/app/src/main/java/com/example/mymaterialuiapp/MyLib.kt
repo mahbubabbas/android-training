@@ -5,3 +5,4 @@ class MyLib {
 }
 
 annotation class MyAnnotation(val s: String)
+

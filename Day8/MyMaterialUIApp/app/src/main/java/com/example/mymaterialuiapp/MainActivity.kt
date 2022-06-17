@@ -40,6 +40,12 @@ class MainActivity : AppCompatActivity() {
 
         val list = listOf<Int>(1, 2, 3, 5, 9) // provider/publisher
 
+        list.toFlowable().subscribe(
+            {v -> println(v)},
+            {e -> println(e)},
+            { println("completd")}
+        )
+
         binding.fab.setOnClickListener { view ->
 
 //            list.toObservable()
@@ -57,7 +63,6 @@ class MainActivity : AppCompatActivity() {
             val observer = myObserver()
 
             observable.subscribe (observer)
-
 
         //            for(i in list) { //consumer
 //                println("Value: $i")
