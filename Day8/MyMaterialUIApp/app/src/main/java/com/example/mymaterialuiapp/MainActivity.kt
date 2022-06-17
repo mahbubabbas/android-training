@@ -12,6 +12,13 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import com.example.mymaterialuiapp.databinding.ActivityMainBinding
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.core.Observer
+import io.reactivex.rxjava3.disposables.Disposable
+import io.reactivex.rxjava3.internal.util.HalfSerializer.onNext
+import io.reactivex.rxjava3.kotlin.toFlowable
+import io.reactivex.rxjava3.kotlin.toObservable
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,10 +38,59 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
+        val list = listOf<Int>(1, 2, 3, 5, 9) // provider/publisher
+
         binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAnchorView(R.id.fab)
-                .setAction("Action", null).show()
+
+//            list.toObservable()
+//                .subscribe (
+//                    {
+//                        v -> println(v)
+//                    },
+//                    {
+//                        e -> println(e)
+//                    },
+//                    { println("completed") }
+//                )
+
+            val observable = myObservable()
+            val observer = myObserver()
+
+            observable.subscribe (observer)
+
+
+        //            for(i in list) { //consumer
+//                println("Value: $i")
+//            }
+
+//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                .setAnchorView(R.id.fab)
+//                .setAction("Action", null).show()
+        }
+    }
+
+    fun myObservable() : Observable<Int> {
+        return Observable.just(1, 2, 3, 4 ,5)
+    }
+
+    fun myObserver() : Observer<Int> {
+        return object : Observer<Int> {
+            override fun onSubscribe(d: Disposable) {
+                //TODO("Not yet implemented")
+            }
+
+            override fun onNext(t: Int) {
+                println("Value $t")
+            }
+
+            override fun onError(e: Throwable) {
+                println("Error")
+            }
+
+            override fun onComplete() {
+                println("Completed")
+            }
+
         }
     }
 
