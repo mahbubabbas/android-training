@@ -16,12 +16,15 @@ class MainActivity : AppCompatActivity() {
         btn = findViewById(R.id.button)
 
         btn.setOnClickListener {
+            //Creation using Thread class
             val t = MyThread(this)
             t.start()
 
+            //Creation using Runnable class
             val t2 = Thread(MyRunnableThread(this))
             t2.start()
 
+            //Creation using thread method
             thread (start = true) {
                 var i = 0
                 val v = findViewById<TextView>(R.id.textView3)
