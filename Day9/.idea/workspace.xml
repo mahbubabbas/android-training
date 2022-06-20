@@ -12,15 +12,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6cf5aaff-dbd6-448d-bd49-ee941c3421db" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Day8/MyMaterialUIApp/.idea/deploymentTargetDropDown.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Day8/MyMaterialUIApp/app/src/main/java/com/example/mymaterialuiapp/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Day8/MyMaterialUIApp/app/src/main/java/com/example/mymaterialuiapp/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Day8/MyMaterialUIApp/app/src/main/java/com/example/mymaterialuiapp/MyLib.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Day8/MyMaterialUIApp/app/src/main/java/com/example/mymaterialuiapp/MyLib.kt" afterDir="false" />
-    </list>
+    <list default="true" id="6cf5aaff-dbd6-448d-bd49-ee941c3421db" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
