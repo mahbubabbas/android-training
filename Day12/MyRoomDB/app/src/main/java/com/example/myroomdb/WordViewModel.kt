@@ -4,6 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
+import com.example.myroomdb.db.Word
+import com.example.myroomdb.db.WordRepository
 import kotlinx.coroutines.launch
 
 class WordViewModel(private val wordRepository: WordRepository) : ViewModel() {

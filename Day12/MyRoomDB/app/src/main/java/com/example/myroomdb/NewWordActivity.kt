@@ -17,6 +17,7 @@ class NewWordActivity : AppCompatActivity() {
         editWordView = findViewById(R.id.edit_word)
 
         val button = findViewById<Button>(R.id.button_save)
+
         button.setOnClickListener {
             val replyIntent = Intent()
             if (TextUtils.isEmpty(editWordView.text)) {
@@ -26,6 +27,7 @@ class NewWordActivity : AppCompatActivity() {
                 replyIntent.putExtra(EXTRA_REPLY, word)
                 setResult(Activity.RESULT_OK, replyIntent)
             }
+
             finish()
         }
     }
