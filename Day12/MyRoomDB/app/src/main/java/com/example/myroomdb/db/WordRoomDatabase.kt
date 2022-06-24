@@ -30,7 +30,6 @@ public abstract class WordRoomDatabase : RoomDatabase() {
                     wordDao.insert(word)
                     word = Word(0, "World!")
                     wordDao.insert(word)
-
                     // TODO: Add your own words!
                     word = Word(0, "TODO!")
                     wordDao.insert(word)

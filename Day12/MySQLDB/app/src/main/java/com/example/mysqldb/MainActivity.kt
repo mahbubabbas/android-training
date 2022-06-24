@@ -14,6 +14,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
     private val db = StudentModel(this)
+
     var students = ArrayList<Student>()
     lateinit var studentListAdapter: StudentListAdapter
 
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         val studentRecycler = findViewById<RecyclerView>(R.id.listStudent)
         studentRecycler.layoutManager = LinearLayoutManager(this)
+
         students = db.readAll()
         studentListAdapter = StudentListAdapter(students)
         studentRecycler.adapter = studentListAdapter
@@ -47,9 +49,9 @@ class MainActivity : AppCompatActivity() {
         dialogBuilder.setNeutralButton("Save") { dialog, which ->
             db.create(
                 Student(
-                    Integer.valueOf(txtId.text.toString()),
-                    txtName.text.toString(),
-                    Integer.valueOf(txtRoll.text.toString())
+                    id = Integer.valueOf(txtId.text.toString()),
+                    name = txtName.text.toString(),
+                    rollNo = Integer.valueOf(txtRoll.text.toString())
                 )
             )
         }
