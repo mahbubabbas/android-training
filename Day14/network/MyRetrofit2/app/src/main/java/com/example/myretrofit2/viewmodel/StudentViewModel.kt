@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.myretrofit2.data.Student
 import com.example.myretrofit2.network.StudentApi
 import com.example.myretrofit2.network.StudentFactory
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class StudentViewModel : ViewModel() {
@@ -13,19 +14,48 @@ class StudentViewModel : ViewModel() {
         .getInstance()
         .create(StudentApi::class.java)
 
-    private val _liveStudens = MutableLiveData<List<Student>>()
+    private val _liveStudents = MutableLiveData<List<Student>>()
+    private val _busy = MutableLiveData<Boolean>()
 
-    fun getStudents() = _liveStudens
+    private suspend fun fetchAllStudents() {
+        delay(3000L)
+        val students = studentApi.getStudents()
+        _liveStudents.postValue(students)
+    }
+
+    fun getStudents() = _liveStudents
+    fun getBusyStatus() = _busy
 
     fun callGetStudentApi() {
+        _busy.postValue(true)
         viewModelScope.launch {
             try {
-                val students = studentApi.getStudents()
-                _liveStudens.postValue(students)
+                fetchAllStudents()
+                _busy.postValue(false)
             } catch (e: Exception) {
                 e.printStackTrace()
+                _busy.postValue(false)
             }
         }
     }
+
+    fun callAddStudentApi(student: Student) {
+        _busy.postValue(true)
+        viewModelScope.launch {
+            try {
+                studentApi.createStudent(
+                    name = student.name,
+                    rollNo = student.rollNo
+                )
+
+                fetchAllStudents()
+                _busy.postValue(false)
+            } catch (e: Exception) {
+                e.printStackTrace()
+                _busy.postValue(false)
+            }
+        }
+    }
+
 }
 
