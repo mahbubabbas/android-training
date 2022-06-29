@@ -2,34 +2,32 @@ package com.example.myunittestsampleapp
 
 import android.content.Context
 import androidx.test.core.app.ApplicationProvider
-import org.junit.Test
 import com.google.common.truth.Truth.assertThat
+import org.junit.Test
 
 class ResourceHelperTest {
-    private val resourceHelper = ResourceHelper()
+    lateinit var resourceHelper: ResourceHelper
 
+
+    //Resource id string is NOT equal to given string
     @Test
-    fun resIdSameAsResString_returnsTrue() {
+    fun resIdNotEqualToString() {
+        resourceHelper = ResourceHelper()
         val context = ApplicationProvider.getApplicationContext<Context>()
-        val res = resourceHelper.compareResourceString(
-            context,
-            R.string.app_name,
-            "My UnitTest Sample App"
-        )
-
-        assertThat(res).isTrue()
-    }
-
-    @Test
-    fun resIdDiffAsResString_returnsFalse() {
-        val context = ApplicationProvider.getApplicationContext<Context>()
-        val res = resourceHelper.compareResourceString(
-            context,
-            R.string.app_name,
-            "Hello"
-        )
+        val res = resourceHelper.compareResourceString(context, R.string.test_id, "hello")
 
         assertThat(res).isFalse()
+    }
+
+
+    //Resource id string is equal to given string
+    @Test
+    fun resIdEqualToString() {
+        resourceHelper = ResourceHelper()
+        val context = ApplicationProvider.getApplicationContext<Context>()
+        val res = resourceHelper.compareResourceString(context, R.string.test_id, "Test")
+
+        assertThat(res).isTrue()
     }
 
 }

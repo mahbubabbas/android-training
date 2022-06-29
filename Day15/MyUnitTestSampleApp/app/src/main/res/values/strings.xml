@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">My UnitTest Sample App</string>
+    <string name="test_id">Test</string>
 </resources>
